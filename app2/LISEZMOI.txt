@@ -1,0 +1,54 @@
+
+-----------------------
+RENSEIGNEMENTS GÉNÉRAUX
+-----------------------
+
+1. Nom: Pascale Beaunoyer
+        Maxime  Comeau
+        Brian   Ly 
+        Tristan Samson
+
+    Groupe: 04
+    Équipe: 8491
+
+2. Description: Projet final
+
+   Robot 2:
+
+   6 états pour la réalisation de sa séquence:
+
+   INITIALIZATION        Charge l'affichage dans l'EEPROM
+   FOLLOW_LINE:          Fait le suivi de ligne et ajuste le PWM des moteurs pour s'assurer qu'il va en ligne droite
+   TURN_RIGHT:           Tourne de 90 degrés à droite selon si c'est une ligne ou un coin de table
+   MEASURE_LINE:         Lorsque le robot est sur une ligne, il mesure la longueur de celle-ci et déterminer s'il elle est de 4,5, 6,5 ou 8,5 pouces de longueur
+   TURN_LEFT:            Tourne de 90 degrés à gauche lors de la fin du parcours
+   CALCULATE_POSITION    Calcul qui permet de savoir ou la ligne est située lors du parcours
+   WAITING:              Allume la DEL en rouge. Si le bouton blanc est appuyé, le robot envoie le parcours via RS-232 et la DEL verte clignote. Si le bouton interrupt
+                         est appuyé, cela allume la DEL en rouge et joue 3 sons aigus de 50 ms séparés par des silences de 50 ms
+   TRANSMIT_TO_PC:       Transmet le parcours à affichier via RS-232
+   TRANSMIT_TO_R1:       Transmet le parcours par infrarouge au robot1
+
+3. Identifications matérielles :
+
+    PA0-PA1-PA2-    Connexion du câble pour le suiveur de ligne Maker Line sur la broche 1 à la broche 5 (PA0 à PA4) du port A  correspondant respectivement
+    PA3-PA4         au capteur S1, S2, S3, S4 et S5dont la PIN PA0 du port A est en entrée.
+    PB0             Connexion du câble à deux positions serties avec un bout femelle et l'autre mâle sur PB0 correspondant à l'utilisation du bouton blanc. La PIN PB0 
+                    du port B est mise en entrée.
+    PB4 et PB5      Connexion du son sur les broches 5 et 6 (PB4 et PB5) du port B dont les PIN PB4 et PB5 du port B sont en sorties.
+    PC2 et PC3      Connexion du câble à deux positions serties avec les deux bouts femelles sur le connecteur de la LED aux broches 3 et 4 (PC2 et PC3) du port C 
+                    dont les PIN PC2 et PC3 du port C sont en sorties.
+    PC6             Connexion du câble à deux positions serties avec un bout femelle et l'autre mâle pour la DEL infrarouge sur la broche 1 à la broche 7 (PC6) du port C 
+                    dont la PIN PC6 est en sortie.
+    PD4 et PD5      Connexion du câble à deux positions serties avec les deux bouts femelles sur le contrôle du circuit du pont en H (la PIN de direction) où PD4 sert pour la 
+                    roue gauche et PD5, la roue droite. Si ces PIN sont activées (mises à 1), la direction des roues reculent. PD4 et PD5 sont en sorties.
+    PD6 et PD7      Connexion du câble à deux positions serties avec les deux bouts femelles sur le contrôle du circuit du pont en H (la PIN de PWM) où PD6 sert pour la 
+                    roue gauche et PD7, la roue droite. 
+                    
+-----------------------
+     COMMENTAIRES
+-----------------------
+
+Toutes les valeurs inscrites dans robot.movement.[NOM DE LA MÉTHODE]() sont des chiffres magiques, puisqu'elles représentent une valeur sur 255, soit 255 correspond à sa 
+vitesse maximale et 0, sa vitesse minimale. Celles-ci dépendemment énormément des batteries, c'est pourquoi elles ne sont pas identifiées. 
+
+La map est mise dans l'EEPROM au début du programme

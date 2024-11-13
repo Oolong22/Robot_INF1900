@@ -1,0 +1,46 @@
+
+-----------------------
+RENSEIGNEMENTS GÉNÉRAUX
+-----------------------
+
+1. Nom: Pascale Beaunoyer
+        Maxime Comeau
+        Brian Ly 
+        Tristan Samson
+
+    Groupe: 04
+    Équipe: 8491
+
+2. Description: Projet final
+
+   Robot 1:
+
+   6 états pour la réalisation de sa séquence:
+
+   GET_POSITION:    Prend la valeur reçue du capteur de distance pour la convertir à la position que le robot doit être affiché
+                    *Les chiffres magiques 3, 7 et 11 correspondent respectivement à la ligne de l'affichage de la distance par rapport au contour de la boîte.
+ 
+   GET_TO_CENTER:   Avance ou recule dépendemment de la distance du capteur par rapport au contour de la boîte
+   FIND_OPENING:    Tourne à gauche jusqu'à temps que le capteur détecte l'ouverture
+   WAIT:            Allume la DEL en rouge et joue 3 sons aigus de 50 ms séparés par des silences de 50 ms
+   RECEIVE:         Éteint la DEL et reçoit les signaux infrarouges. S'il y a une erreur dans la transmission, l'état retourne dans WAIT
+   TRANSMIT:        Allume la DEL en vert et lorsque le bouton Interrupt est pesé, le robot envoie le contenu à afficher via RS-232
+
+
+3. Identifications matérielles :
+
+    PA0             Connexion du câble pour le capteur de distance sur la broche 1 (PA0) du port A dont la PIN PA0 du port A est en entrée.
+    PB4 et PB5      Connexion du son sur les borches 5 et 6 (PB4 et PB5) du port B dont les PIN PB4 et PB5 du port B sont en sorties.
+    PC2 et PC3      Connexion du câble à deux positions serties avec les deux bouts femelles sur le connecteur de la LED aux broches 3 et 4 (PC2 et PC3) du port C 
+                    dont les PIN PC2 et PC3 du port C sont en sorties.
+    PD4 et PD5      Connexion du câble à deux positions serties avec les deux bouts femelles sur le contrôle du circuit du pont en H (la PIN de direction) où PD4 sert pour la 
+                    roue gauche et PD5, la roue droite. Si ces PIN sont activées (mises à 1), la direction des roues reculent. PD4 et PD5 sont en sorties.
+    PD6 et PD7      Connexion du câble à deux positions serties avec les deux bouts femelles sur le contrôle du circuit du pont en H (la PIN de PWM) où PD6 sert pour la 
+                    roue gauche et PD7, la roue droite. 
+
+-----------------------
+     COMMENTAIRES
+-----------------------
+
+Toutes les valeurs inscrites dans robot.movement.[NOM DE LA MÉTHODE]() sont des chiffres magiques, puisqu'elles représentent une valeur sur 255, soit 255 correspond à sa 
+vitesse maximale et 0, sa vitesse minimale. Celles-ci dépendemment énormément des batteries, c'est pourquoi elles ne sont pas identifiées. 

@@ -1,0 +1,5 @@
+#define S1 (PINA & (1 << PINA0))
+#define S2 (PINA & (1 << PINA1))
+#define S3 (PINA & (1 << PINA2))
+#define S4 (PINA & (1 << PINA3))
+#define S5 (PINA & (1 << PINA4))
